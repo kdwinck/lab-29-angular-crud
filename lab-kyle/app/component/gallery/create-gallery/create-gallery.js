@@ -28,8 +28,11 @@ function CreateGalleryController($log, galleryService) {
 
   this.deleteGallery = function(id){
     galleryService.deleteGallery(id)
-      .then( res => {
-        $log.log('gallery deleted', res)
+      .then(res => {
+        $log.log('gallery deleted')
+        this.galleries = res.filter(function(el) {
+          if (el) return el
+        })
       })
   }
 }
