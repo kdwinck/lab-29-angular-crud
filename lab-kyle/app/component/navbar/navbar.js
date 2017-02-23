@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 module.exports = {
   template: require('./navbar.html'),
   controller: ['$log', '$location', '$rootScope', 'authService', NavbarController],
