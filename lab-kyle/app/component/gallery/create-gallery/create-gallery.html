@@ -15,9 +15,10 @@
   <section>
     <button class="btn-std" type="button" ng-click="createGalleryCtrl.fetchGalleries()">show galleries</button>
     <ul>
-      <li ng-repeat="gallery in createGalleryCtrl.galleries">
+      <li ng-repeat="gallery in createGalleryCtrl.galleries" ng-model="gallery">
         <h3>{{gallery.name}}</h3>
         <p>{{gallery.desc}}</p>
+        <button class="btn-std" type="button" ng-click="createGalleryCtrl.deleteGallery(gallery._id)">delete gallery</button>
       </li>
     </ul>
   </section>

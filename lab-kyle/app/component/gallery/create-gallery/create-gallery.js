@@ -25,4 +25,11 @@ function CreateGalleryController($log, galleryService) {
         this.galleries = res;
       })
   }
+
+  this.deleteGallery = function(id){
+    galleryService.deleteGallery(id)
+      .then( res => {
+        $log.log('gallery deleted', res)
+      })
+  }
 }
