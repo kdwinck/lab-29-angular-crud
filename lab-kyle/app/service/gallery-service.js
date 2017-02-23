@@ -35,19 +35,6 @@ function galleryService($q, $log, $http, authService) {
       })
   }
 
-  // service.deleteGalleries = function(galleryID, galleryData) {
-  //   return authService.getToken()
-  //   .then( token => {
-  //     let url = `${__API_URL__}/api/gallery/${galleryID}`
-  //     let config = {
-  //       headers: {
-  //         Accept: 'application/json',
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     }
-  //   })
-  // }
-
   service.fetchGalleries = function() {
     $log.debug('galleryService.fetchGalleries()')
 
@@ -63,7 +50,6 @@ function galleryService($q, $log, $http, authService) {
         return $http.get(url, config)
       })
       .then( res => {
-        $log.log('galleries retrieved')
         service.galleries = res.data
         return service.galleries
       })

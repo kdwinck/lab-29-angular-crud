@@ -3,15 +3,11 @@
     class="gallery-form"
     ng-submit="createGalleryCtrl.createGallery()">
 
-    <fieldset>
-      <label for="name">name</label>
-      <input name="name" class="input-std" type="text" ng-model="createGalleryCtrl.gallery.name" required>
-    </fieldset>
+    <h2>Create a new gallery</h2>
 
-    <fieldset>
-      <label for="desc">description</label>
-      <input name="desc" class="input-std" ng-model="createGalleryCtrl.gallery.desc" required>
-    </fieldset>
+    <input placeholder="name" class="input-std" type="text" ng-model="createGalleryCtrl.gallery.name" required>
+
+    <input placeholder="description" class="input-std" ng-model="createGalleryCtrl.gallery.desc" required>
 
     <button class="btn-std" type="submit">create gallery</button>
   </form>
@@ -19,7 +15,10 @@
   <section>
     <button class="btn-std" type="button" ng-click="createGalleryCtrl.fetchGalleries()">show galleries</button>
     <ul>
-      <li ng-repeat="gallery in createGalleryCtrl.galleries">{{ gallery }}</li>
+      <li ng-repeat="gallery in createGalleryCtrl.galleries">
+        <h3>{{gallery.name}}</h3>
+        <p>{{gallery.desc}}</p>
+      </li>
     </ul>
   </section>
 
