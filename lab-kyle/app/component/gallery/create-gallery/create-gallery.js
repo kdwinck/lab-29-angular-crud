@@ -13,9 +13,16 @@ function CreateGalleryController($log, galleryService) {
 
   this.createGallery = function() {
     galleryService.createGallery(this.gallery)
-    .then( () => {
-      this.gallery.name = null
-      this.gallery.desc = null
-    })
+      .then( () => {
+        this.gallery.name = null
+        this.gallery.desc = null
+      })
+  }
+
+  this.fetchGalleries = function() {
+    galleryService.fetchGalleries()
+      .then( res => {
+        this.galleries = res;
+      })
   }
 }
