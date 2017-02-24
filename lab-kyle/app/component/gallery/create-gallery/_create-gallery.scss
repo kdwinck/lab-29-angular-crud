@@ -32,6 +32,9 @@
 
   ul {
     padding-left: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
   li {
@@ -42,5 +45,6 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: lightgrey;
   }
 }
