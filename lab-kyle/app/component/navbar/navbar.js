@@ -1,5 +1,7 @@
 'use strict'
 
+require('./_navbar.scss')
+
 module.exports = {
   template: require('./navbar.html'),
   controller: ['$log', '$location', '$rootScope', 'authService', NavbarController],
@@ -31,11 +33,7 @@ function NavbarController($log, $location, $rootScope, authService) {
   })
 
   this.logout = function() {
-    $log.log('navbarCtrl.logout()')
-    this.hideButtons = true
+    $log.debug('HomeController.logout()')
     authService.logout()
-    .then( () => {
-      $location.url('/')
-    })
   }
 }

@@ -35,7 +35,6 @@ function authService($q, $log, $http, $window) {
   // remove token from service and local storage
   service.logout = function() {
     $log.debug('authService.logout()')
-    console.log('in logout');
     $window.localStorage.removeItem('token')
     token = null
     return $q.resolve()

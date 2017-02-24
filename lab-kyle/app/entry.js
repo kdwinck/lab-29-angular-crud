@@ -1,37 +1,37 @@
-'use strict';
+'use strict'
 
-require('./scss/main.scss');
+require('./scss/main.scss')
 
-const path = require('path');
-const angular = require('angular');
-const camelcase = require('camelcase');
-const pascalcase = require('pascalcase');
-const uiRouter = require('angular-ui-router');
+const path = require('path')
+const angular = require('angular')
+const camelcase = require('camelcase')
+const pascalcase = require('pascalcase')
+const uiRouter = require('angular-ui-router')
 
-const cfgram = angular.module('cfgram', [uiRouter]);
+const cfgram = angular.module('cfgram', [uiRouter])
 
-let context = require.context('./config/', true, /\.js$/);
+let context = require.context('./config/', true, /\.js$/)
 context.keys().forEach( path => {
-  cfgram.config(context(path));
+  cfgram.config(context(path))
+})
+
+context = require.context('./view/', true, /\.js$/)
+context.keys().forEach( key => {
+  let name = pascalcase(path.basename(key, '.js'))
+  let module = context(key)
+  cfgram.controller(name, module)
 });
 
-context = require.context('./view/', true, /\.js$/);
+context = require.context('./service/', true, /\.js$/)
 context.keys().forEach( key => {
-  let name = pascalcase(path.basename(key, '.js'));
-  let module = context(key);
-  cfgram.controller(name, module);
-});
+  let name = camelcase(path.basename(key, '.js'))
+  let module = context(key)
+  cfgram.service(name, module)
+})
 
-context = require.context('./service/', true, /\.js$/);
+context = require.context('./component/', true, /\.js$/)
 context.keys().forEach( key => {
-  let name = camelcase(path.basename(key, '.js'));
-  let module = context(key);
-  cfgram.service(name, module);
-});
-
-context = require.context('./component/', true, /\.js$/);
-context.keys().forEach( key => {
-  let name = camelcase(path.basename(key, '.js'));
-  let module = context(key);
-  cfgram.component(name, module);
-});
+  let name = camelcase(path.basename(key, '.js'))
+  let module = context(key)
+  cfgram.component(name, module)
+})
