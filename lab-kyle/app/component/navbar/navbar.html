@@ -6,7 +6,10 @@
 
   <nav>
     <div ng-hide="navbarCtrl.hideButtons">
-      <button class="btn-std" ng-click="navbarCtrl.logout()">logout</button>
+      <a href="/#/join#login"
+      ng-click="landingCtrl.showSignup=false">
+        <button class="btn-std" ng-click="navbarCtrl.logout()">logout</button>
+      </a>
     </div>
   </nav>
 </section>
