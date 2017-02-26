@@ -1,0 +1,7 @@
+<li class="gallery-item">
+  <form ng-submit="editGalleryCtrl.updateGallery(); galleryItemCtrl.update = !galleryItemCtrl.update">
+    <input type="text" placeholder="name" ng-model="editGalleryCtrl.gallery.name">
+    <input type="text" placeholder="description" ng-model="editGalleryCtrl.gallery.desc">
+    <button class="btn-std" type="submit">update</button>
+  </form>
+</li>

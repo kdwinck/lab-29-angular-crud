@@ -12,7 +12,9 @@ module.exports = {
 }
 
 function GalleryItemController($log, galleryService) {
-  $log.log('galleryItemCtrl')
+  $log.debug('galleryItemCtrl')
+
+  this.update = false;
 
   this.deleteGallery = function(){
     galleryService.deleteGallery(this.gallery._id)
