@@ -1,23 +1,27 @@
 'use strict'
 
-// require('./_edit-gallery.scss')
+require('./_edit-gallery.scss')
 
 module.exports = {
   template: require('./edit-gallery.html'),
-  controller: ['$log', '$window', 'authService', 'galleryService', EditGalleryController],
+  controller: ['$log', 'authService', 'galleryService', EditGalleryController],
   controllerAs: 'editGalleryCtrl',
   bindings: {
-    gallery: '<'
+    gallery: '<',
+    update: '<'
   }
 }
 
-function EditGalleryController($log, $window, authService, galleryService) {
+function EditGalleryController($log, authService, galleryService) {
+  $log.debug('EditGalleryController')
+
+  this.gallery = {}
 
   this.updateGallery = function() {
     galleryService.updateGallery(this.gallery._id, this.gallery)
       .then(() => {
         console.log('updated')
-        $window.location.reload()
+        this.update = false;
       })
   }
 }

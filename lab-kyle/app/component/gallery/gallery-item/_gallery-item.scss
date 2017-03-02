@@ -1,5 +1,6 @@
 gallery-item {
   width: 100%;
+  margin: 1em;
 
   div {
     display: flex;
@@ -18,4 +19,5 @@ gallery-item {
     align-items: center;
     background-color: lightgrey;
   }
+
 }

@@ -1,13 +1,22 @@
 <li class="gallery-item">
-  <div ng-if"!galleryItemCtrl.update">
+  <div ng-if="!galleryItemCtrl.update">
     <p>name: {{galleryItemCtrl.gallery.name}}</p>
     <p>description: {{galleryItemCtrl.gallery.desc}}</p>
-    <section>
+    <section class="buttons">
       <span><button class="btn-std" type="button" ng-click="galleryItemCtrl.update = !galleryItemCtrl.update">update</button></span>
-      <button class="btn-std" type="button" ng-click="galleryItemCtrl.deleteGallery()">delete</button>
+      <span><button class="btn-std" type="button" ng-click="galleryItemCtrl.deleteGallery()">delete</button></span>
+      <span><button class="btn-std" type="button" ng-click="galleryItemCtrl.deleteGallery()">upload</button></span>
     </section>
 
   </div>
 
-  <edit-gallery ng-if="galleryItemCtrl.update" gallery="galleryItemCtrl.gallery"></edit-gallery>
+  <edit-gallery ng-if="galleryItemCtrl.update"
+                gallery="galleryItemCtrl.gallery"
+                update="galleryItemCtrl.update">
+  </edit-gallery>
+
+  <img-upload ng-if="galleryItemCtrl.upload"
+              gallery="galleryItemCtrl.gallery"
+              upload="galleryItemCtrl.upload">
+  </img-upload>
 </li>
