@@ -1,5 +1,6 @@
 <li class="gallery-item">
   <div ng-if="!galleryItemCtrl.update && !galleryItemCtrl.upload">
+    <thumbnail images="galleryItemCtrl.gallery.pics"></thumbnail>
     <p>name: {{galleryItemCtrl.gallery.name}}</p>
     <p>description: {{galleryItemCtrl.gallery.desc}}</p>
     <section class="buttons">
