@@ -5,7 +5,7 @@ const dotenv = require('dotenv')
 
 // const production = process.env.NODE_ENV === 'production'
 
-dotenv.config()
+dotenv.load()
 
 plugins = [
   new ExtractTextPlugin('bundle.css'),

@@ -12,19 +12,24 @@ function imageService($log, $q, Upload, authService) {
 
     return authService.getToken()
       .then( token => {
+        console.log(imageData);
         let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic`
         let headers = {
-          Authorizaiton: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           Accept: 'application/json'
         }
         let method = 'POST'
-        let data = {
-          name: imageData.name,
-          desc: imageData.desc,
-          file: imageData.file
-        }
 
-        return Upload.upload({url, headers, method, data})
+        return Upload.upload({
+          url,
+          headers,
+          method,
+          data: {
+            name: imageData.name,
+            desc: imageData.desc,
+            file: imageData.file
+          }
+        })
       })
       .then( res => {
         galleryData.pics.unshift(res.data)
@@ -35,4 +40,5 @@ function imageService($log, $q, Upload, authService) {
         return $q.reject(err)
       })
   }
+  return service
 }

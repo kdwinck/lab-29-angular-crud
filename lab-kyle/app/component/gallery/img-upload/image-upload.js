@@ -2,7 +2,7 @@
 
 module.exports = {
   template: require('./image-upload.html'),
-  controller: ['$log', 'galleryService', ImageUploadController],
+  controller: ['$log', 'imageService', ImageUploadController],
   controllerAs: 'imageUploadCtrl',
   bindings: {
     gallery: '<',
@@ -10,19 +10,20 @@ module.exports = {
   }
 }
 
-function ImageUploadController($log, galleryService) {
+function ImageUploadController($log, imageService) {
   $log.debug('imageUploadCtrl')
 
   this.image = {}
 
   this.uploadImage = function() {
-    this.upload = false
-    // imageService.uploadImage(this.gallery, this.image)
-    //   .then(() => {
-    //     this.pic.name = null
-    //     this.pic.desc = null
-    //     this.pic.file = null
-    //     this.upload = false;
-    //   })
+    $log.log(this.image)
+    imageService.uploadImage(this.gallery, this.image)
+      .then(() => {
+        $log.log('image uploaded')
+        this.image.name = null
+        this.image.desc = null
+        this.image.file = null
+        this.upload = false;
+      })
   }
 }

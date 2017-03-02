@@ -17,7 +17,7 @@ function GalleryItemController($log, galleryService) {
   this.update = false
   this.upload = false
 
-  this.imgs= []
+  this.pics = []
 
   this.deleteGallery = function(){
     galleryService.deleteGallery(this.gallery._id)
