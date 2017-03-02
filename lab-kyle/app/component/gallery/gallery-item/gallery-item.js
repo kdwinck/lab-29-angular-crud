@@ -14,8 +14,8 @@ module.exports = {
 function GalleryItemController($log, galleryService) {
   $log.debug('galleryItemCtrl')
 
-  this.update = false;
-  this.upload = false;
+  this.update = false
+  this.upload = false
 
   this.imgs= []
 

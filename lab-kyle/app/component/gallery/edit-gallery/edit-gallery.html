@@ -1,15 +1,15 @@
 <li class="gallery-item" ng-if="editGalleryCtrl.update">
-  <form ng-submit="editGalleryCtrl.updateGallery(); editGalleryCtrl.update = !editGalleryCtrl.update">
+  <form ng-submit="editGalleryCtrl.updateGallery()">
 
-    <div class="input">
+    <fieldset class="input">
       <span>Name: </span>
       <input type="text" placeholder="name" ng-model="editGalleryCtrl.gallery.name">
-    </div>
+    </fieldset>
 
-    <div class="input">
+    <fieldset class="input">
       <span>Desc: </span>
       <input type="text" placeholder="description" ng-model="editGalleryCtrl.gallery.desc">
-    </div>
+    </fieldset>
 
     <button class="btn-std" type="submit">update</button>
   </form>
