@@ -1,3 +1,5 @@
-<section class="thumbnail" ng-click="thumbnail.showAll()">
-  <img ng-src="{{thumbnailCtrl.images[0].imageURI}}" alt="{{thumbnailCtrl.images[0].desc}}">
+<section class="thumbnail">
+  <img ng-click="thumbnailCtrl.showAll = !thumbnailCtrl.showAll" ng-if="!thumbnailCtrl.showAll"
+       ng-src="{{thumbnailCtrl.images[0].imageURI}}" alt="{{thumbnailCtrl.images[0].desc}}">
+  <image-gallery ng-if="thumbnailCtrl.showAll" images="thumbnailCtrl.images"></image-gallery>
 </section>

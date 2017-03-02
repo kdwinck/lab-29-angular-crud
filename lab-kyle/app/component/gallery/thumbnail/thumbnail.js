@@ -14,10 +14,8 @@ module.exports = {
 function ThumbnailController($log, imageService) {
   $log.debug('ThumbnailController')
 
-  this.showAllPics = function() {
-    $log.debug('ThumbnailController.showAllPics')
-  }
-
+  this.showAll = false;
+  
   this.deletePic = function() {
     $log.debug('ThumbnailController.deletePic')
   }
