@@ -1,8 +1,8 @@
 'use strict'
 
-module.exports = ['$log', '$q', 'Upload', 'authService', imageService]
+module.exports = ['$log', '$q', '$http', 'Upload', 'authService', imageService]
 
-function imageService($log, $q, Upload, authService) {
+function imageService($log, $q, $http, Upload, authService) {
   $log.debug('imageService')
 
   let service = {}
@@ -12,7 +12,6 @@ function imageService($log, $q, Upload, authService) {
 
     return authService.getToken()
       .then( token => {
-        console.log(imageData);
         let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic`
         let headers = {
           Authorization: `Bearer ${token}`,
@@ -39,6 +38,31 @@ function imageService($log, $q, Upload, authService) {
         $log.error(err.message)
         return $q.reject(err)
       })
+  }
+
+  service.deleteImage = function(galleryData, imageId) {
+
+    return authService.getToken()
+      .then( token => {
+        let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic/${imageId}`
+        let headers = {
+          Authorization: `Bearer ${token}`,
+          Accept: 'application/json'
+        }
+
+        return $http.delete(url, headers)
+      })
+      .then(() => {
+        return galleryData.images.map(function(image) {
+          if (image._id != imageId) return image
+        })
+      })
+      .then( images => {return images})
+      .catch( err => {
+        $log.error(err.message)
+        return $q.reject(err)
+      })
+
   }
   return service
 }
