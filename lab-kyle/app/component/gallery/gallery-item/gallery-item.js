@@ -21,8 +21,9 @@ function GalleryItemController($log, galleryService) {
 
   this.deleteGallery = function(){
     galleryService.deleteGallery(this.gallery._id)
-      .then(() => {
+      .then(res => {
         $log.log('gallery deleted')
+        galleryService.galleries = res
       })
   }
 }
