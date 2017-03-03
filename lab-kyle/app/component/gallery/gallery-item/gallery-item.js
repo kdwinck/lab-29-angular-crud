@@ -7,7 +7,7 @@ module.exports = {
   controller : ['$log', 'galleryService', GalleryItemController],
   controllerAs: 'galleryItemCtrl',
   bindings: {
-    gallery: '<'
+    gallery: '='
   }
 }
 
@@ -21,11 +21,8 @@ function GalleryItemController($log, galleryService) {
 
   this.deleteGallery = function(){
     galleryService.deleteGallery(this.gallery._id)
-      .then(res => {
+      .then(() => {
         $log.log('gallery deleted')
-        galleryService.galleries = res.filter(function(el) {
-          if (el) return el
-        })
       })
   }
 }

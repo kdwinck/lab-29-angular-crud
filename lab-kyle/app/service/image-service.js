@@ -45,19 +45,15 @@ function imageService($log, $q, $http, Upload, authService) {
     return authService.getToken()
       .then( token => {
         let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic/${imageId}`
-        let headers = {
-          Authorization: `Bearer ${token}`,
-          Accept: 'application/json'
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+          }
         }
 
-        return $http.delete(url, headers)
+        return $http.delete(url, config)
       })
-      .then(() => {
-        return galleryData.images.map(function(image) {
-          if (image._id != imageId) return image
-        })
-      })
-      .then( images => {return images})
       .catch( err => {
         $log.error(err.message)
         return $q.reject(err)

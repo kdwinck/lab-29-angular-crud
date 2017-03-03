@@ -73,15 +73,6 @@ function galleryService($q, $log, $http, authService) {
         }
         return $http.delete(url, config)
       })
-      .then(() => {
-        return service.galleries.map(function(gallery) {
-          if (gallery._id != id) return gallery
-        })
-      })
-      .then(galleries => {
-        service.galleries = galleries
-        return galleries
-      })
       .catch( err => {
         $log.error(err.message)
         return $q.reject(err)
