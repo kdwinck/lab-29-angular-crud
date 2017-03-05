@@ -1,10 +1,6 @@
-/* global expect */
+/* global expect angular*/
 
 'use strict'
-
-const angular = require('angular')
-require('angular-mocks')
-require('../app/entry')
 
 describe('Auth Service', function() {
 
@@ -15,6 +11,20 @@ describe('Auth Service', function() {
       this.$window = $window
       this.$rootScope = $rootScope
       this.$httpBackend = $httpBackend
+    })
+  })
+
+  describe('authService.logout()', () => {
+    it('should clear local storage', () => {
+      this.$window.localStorage.setItem('token', 'token')
+
+      this.authService.logout()
+      .then(() => {
+        let result = this.$window.localStorage.getItem('token')
+        expect(result).toEqual(null)
+      })
+
+      this.$rootScope.$apply()
     })
   })
 
@@ -31,21 +41,6 @@ describe('Auth Service', function() {
     })
   })
 
-  describe('authService.logout()', () => {
-    it('should clear local storage', () => {
-      this.$window.localStorage.setItem('token', 'token')
-
-      this.authService.logout()
-        .then(() => {
-          let result = this.$window.localStorage.getItem('token')
-          expect(result).toEqual(null)
-        })
-
-      this.$rootScope.$apply()
-    })
-  })
-
-  // need slugram running?
 
   // describe('authService.signup()', () =>{
   //   it('should sign up a new user', () => {
