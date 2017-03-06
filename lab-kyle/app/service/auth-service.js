@@ -44,7 +44,6 @@ function authService($q, $log, $http, $window) {
 
   // signup a new user
   service.signup = function(user) {
-    console.log(user);
     $log.debug('authService.signup()')
 
     let url = `${__API_URL__}/api/signup`
@@ -57,9 +56,8 @@ function authService($q, $log, $http, $window) {
 
     return $http.post(url, user, config)
             .then( res => {
-              console.log(user)
               $log.log('success', res.data)
-              console.log(res);
+              console.log(res.data);
               return setToken(res.data)
             })
             .catch( err => {
