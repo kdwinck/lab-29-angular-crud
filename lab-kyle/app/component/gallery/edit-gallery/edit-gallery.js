@@ -19,9 +19,9 @@ function EditGalleryController($log, authService, galleryService) {
 
   this.updateGallery = function() {
     galleryService.updateGallery(this.gallery._id, this.gallery)
-      .then(() => {
-        console.log('updated')
-        this.update = false;
+      .then(gallery => {
+        this.update = false
+        return gallery
       })
   }
 }
