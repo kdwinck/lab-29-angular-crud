@@ -2,6 +2,10 @@ gallery-item {
   width: 100%;
   margin: 1em;
 
+  p {
+    margin: 1em;
+  }
+
   div {
     display: flex;
     flex-direction: column;
@@ -18,6 +22,16 @@ gallery-item {
     justify-content: space-around;
     align-items: center;
     background-color: lightgrey;
+  }
+
+  .desc {
+    width: 90%;
+  }
+
+  .inline {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
   }
 
 }

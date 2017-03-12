@@ -36,3 +36,6 @@ context.keys().forEach( key => {
   let module = context(key)
   cfgram.component(name, module)
 })
+
+context = require.context('./filter/', true, /\.js$/)
+context.keys().forEach( key => cfgram.filter(camelcase(path.basename(key, '.js')), context(key)))
