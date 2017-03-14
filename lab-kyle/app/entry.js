@@ -8,8 +8,9 @@ const camelcase = require('camelcase')
 const pascalcase = require('pascalcase')
 const uiRouter = require('angular-ui-router')
 const ngFileUpload = require('ng-file-upload')
+require('angular-translate')
 
-const cfgram = angular.module('cfgram', [uiRouter, ngFileUpload])
+const cfgram = angular.module('cfgram', [uiRouter, ngFileUpload, 'pascalprecht.translate'])
 
 let context = require.context('./config/', true, /\.js$/)
 context.keys().forEach( path => {
