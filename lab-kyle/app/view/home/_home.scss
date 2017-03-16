@@ -5,10 +5,9 @@
 }
 
 .langs {
-  align-self: center;
-  button {
-    margin: 1em;
-  }
+  position: fixed;
+  left: 0;
+  top: 300;
 }
 
 h3 {

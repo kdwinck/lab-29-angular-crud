@@ -1,9 +1,14 @@
 <section class="home">
 
-  <section class="langs">
-    <button ng-click="homeCtrl.changeLanguage('en')">English</button>
-    <button ng-click="homeCtrl.changeLanguage('de')">German</button>
-    <button ng-click="homeCtrl.changeLanguage('jp')">Japanese</button>
+  <section class="langs" uib-dropdown>
+    <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+      Languages <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" uib-dropdown-menu>
+      <li><button class="btn btn-primary" ng-click="homeCtrl.changeLanguage('en')">English</button></li>
+      <li><button class="btn btn-success" ng-click="homeCtrl.changeLanguage('de')">German</button></li>
+      <li><button class="btn btn-danger" ng-click="homeCtrl.changeLanguage('jp')">Japanese</button></li>
+    </ul>
   </section>
 
   <create-gallery></create-gallery>
