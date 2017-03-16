@@ -16,12 +16,11 @@
   <section>
     <h3>Galleries</h3>
     <input type="text" ng-model="homeCtrl.regExp">
-    <ul>
-      <gallery-item ng-repeat="gallery in homeCtrl.galleries |
-          orderBy : 'created' |
-          limitTo: 10 |
-          fuzzySearch: homeCtrl.regExp"
-          gallery="gallery"></gallery-item>
-    </ul>
+    <gallery-item ng-repeat="gallery in homeCtrl.galleries |
+    orderBy : 'created' |
+    limitTo: 10 |
+    fuzzySearch: homeCtrl.regExp"
+    gallery="gallery"
+    ></gallery-item>
   </section>
 </section>
