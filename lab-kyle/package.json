@@ -2,7 +2,7 @@
   "name": "Lab-29-Angular-Auth",
   "version": "1.0.0",
   "description": "",
-  "main": "entry.js",
+  "main": "server.js",
   "scripts": {
     "test": "karma start --single-run",
     "test-watch": "karma start",
