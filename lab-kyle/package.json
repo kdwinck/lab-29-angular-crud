@@ -12,7 +12,7 @@
     "start": "node server.js",
     "heroku-postbuild": "webpack -p --progress"
   },
-  "engines": { "node": "4.4.7" },
+  "engines": { "node": "7.4.0" },
   "keywords": [],
   "author": "Kyle Winckler",
   "license": "ISC",
