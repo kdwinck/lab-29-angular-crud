@@ -8,8 +8,10 @@
     "test-watch": "karma start",
     "build": "webpack",
     "build-watch": "webpack-dev-server --inline --hot",
-    "lint": "eslint"
+    "lint": "eslint",
+    "start": "node server.js"
   },
+  "engines": { "node": "4.4.7" },
   "keywords": [],
   "author": "Kyle Winckler",
   "license": "ISC",
